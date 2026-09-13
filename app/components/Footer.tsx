@@ -1,16 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { LuStar } from "react-icons/lu";
 import { BsWhatsapp } from "react-icons/bs";
 import { GiOrangeSlice } from "react-icons/gi";
 
 const QUICK_LINKS = [
-  { label: "Beranda", href: "#beranda" },
-  { label: "Produk Unggulan", href: "#produk" },
-  { label: "Keunggulan", href: "#keunggulan" },
-  { label: "Lokasi", href: "#lokasi" },
-  { label: "Kontak", href: "#kontak" },
+  { label: "Beranda", href: "/#beranda" },
+  { label: "Produk Unggulan", href: "/#produk" },
+  { label: "Keunggulan", href: "/#keunggulan" },
+  { label: "Lokasi", href: "/#lokasi" },
+  { label: "Kontak", href: "/#kontak" },
+  { label: "Legalitas", href: "/legalitas" },
 ];
 
 const WA_LINK =
@@ -43,7 +45,7 @@ function LinksColumn() {
       <ul className="flex flex-col gap-2">
         {QUICK_LINKS.map((link) => (
           <li key={link.href}>
-            <a
+            <Link
               href={link.href}
               className="text-body-sm transition-colors"
               style={{ color: "var(--color-stone)" }}
@@ -51,7 +53,7 @@ function LinksColumn() {
               onMouseLeave={(e) => { (e.target as HTMLElement).style.color = "var(--color-stone)"; }}
             >
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

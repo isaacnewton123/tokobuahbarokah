@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { BsWhatsapp } from "react-icons/bs";
 
 const NAV_LINKS = [
-  { label: "Beranda", href: "#beranda" },
-  { label: "Produk Unggulan", href: "#produk" },
-  { label: "Keunggulan", href: "#keunggulan" },
-  { label: "Lokasi", href: "#lokasi" },
-  { label: "Kontak", href: "#kontak" },
+  { label: "Beranda", href: "/#beranda" },
+  { label: "Produk Unggulan", href: "/#produk" },
+  { label: "Keunggulan", href: "/#keunggulan" },
+  { label: "Lokasi", href: "/#lokasi" },
+  { label: "Kontak", href: "/#kontak" },
 ];
 
 const WHATSAPP_LINK =
@@ -34,7 +35,7 @@ function DesktopNav() {
   return (
     <div className="hidden md:flex items-center gap-1">
       {NAV_LINKS.map((link) => (
-        <a
+        <Link
           key={link.href}
           href={link.href}
           className="text-body-sm-bold px-3 py-2 rounded-full transition-colors"
@@ -43,7 +44,7 @@ function DesktopNav() {
           onMouseLeave={(e) => { e.currentTarget.style.color = "var(--color-charcoal)"; e.currentTarget.style.backgroundColor = "transparent"; }}
         >
           {link.label}
-        </a>
+        </Link>
       ))}
     </div>
   );
@@ -54,12 +55,12 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
     <div className="md:hidden animate-slide-down" style={{ backgroundColor: "rgba(255,255,255,0.98)", backdropFilter: "blur(20px)", borderTop: "1px solid var(--color-hairline-soft)" }}>
       <div className="section-container py-4 flex flex-col gap-1">
         {NAV_LINKS.map((link) => (
-          <a key={link.href} href={link.href} className="text-body-md-bold py-3 px-4 rounded-xl transition-colors" style={{ color: "var(--color-ink)" }} onClick={onClose}
+          <Link key={link.href} href={link.href} className="text-body-md-bold py-3 px-4 rounded-xl transition-colors" style={{ color: "var(--color-ink)" }} onClick={onClose}
             onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--color-surface-soft)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
         <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp mt-2 text-center" onClick={onClose}>
           <BsWhatsapp size={18} /> Hubungi via WhatsApp
@@ -72,10 +73,10 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
 function NavBarContent({ isMobileOpen, onToggle }: { isMobileOpen: boolean; onToggle: () => void }) {
   return (
     <div className="section-container flex items-center justify-between h-16 md:h-[72px]">
-      <a href="#beranda" className="flex items-center gap-2 shrink-0" aria-label="Toko Buah Barokah — Beranda">
+      <Link href="/#beranda" className="flex items-center gap-2 shrink-0" aria-label="Toko Buah Barokah — Beranda">
         <Image src="/branding/logo_no_BG.webp" alt="Logo Toko Buah Barokah" width={44} height={44} className="rounded-lg" priority />
         <span className="hidden sm:block font-bold text-lg" style={{ color: "var(--color-primary)" }}>Toko Buah Barokah</span>
-      </a>
+      </Link>
       <DesktopNav />
       <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex btn-whatsapp text-sm! py-2.5! px-5!" aria-label="Hubungi kami via WhatsApp">
         <BsWhatsapp size={18} /> WhatsApp
