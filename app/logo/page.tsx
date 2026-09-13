@@ -2,8 +2,8 @@ import Image from "next/image";
 import { LuDownload, LuPalette, LuSprout, LuHeartHandshake } from "react-icons/lu";
 
 export const metadata = {
-  title: "Filosofi Logo — Toko Buah Barokah",
-  description: "Makna dan filosofi di balik logo Toko Buah Barokah.",
+  title: "Branding Logo — Toko Buah Barokah",
+  description: "Aset dan panduan branding logo Toko Buah Barokah.",
 };
 
 export default function LogoPage() {
@@ -12,10 +12,10 @@ export default function LogoPage() {
       <div className="section-container max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-heading-lg mb-4" style={{ color: "var(--color-primary)" }}>
-            Filosofi Logo
+            Branding Logo
           </h1>
           <p className="text-body-lg" style={{ color: "var(--color-stone)" }}>
-            Identitas visual dan makna di balik nama Toko Buah Barokah.
+            Identitas visual dan aset branding resmi Toko Buah Barokah.
           </p>
         </div>
 

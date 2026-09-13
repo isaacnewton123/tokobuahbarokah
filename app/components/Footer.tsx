@@ -13,7 +13,7 @@ const QUICK_LINKS = [
   { label: "Lokasi", href: "/#lokasi" },
   { label: "Kontak", href: "/#kontak" },
   { label: "Legalitas", href: "/legalitas" },
-  { label: "Filosofi Logo", href: "/logo" },
+  { label: "Branding Logo", href: "/logo" },
 ];
 
 const WA_LINK =
