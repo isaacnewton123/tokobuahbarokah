@@ -7,7 +7,7 @@ import aiGuardrails from 'eslint-plugin-ai-guardrails'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist', 'build', 'coverage', 'node_modules', '.next']),
+  globalIgnores(['dist', 'build', 'coverage', 'node_modules', '.next', 'next-env.d.ts']),
 
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -35,6 +35,12 @@ export default defineConfig([
         'warn',
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    files: ['app/**/*.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
     },
   },
 ])
