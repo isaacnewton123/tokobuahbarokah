@@ -1,26 +1,589 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Toko Buah Barokah — Design System
+   Adapted from DESIGN.md (Meta-inspired) with fruit-store palette
+   ============================================================ */
+
+/* ---------- Design Tokens (CSS Custom Properties) ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Colors: Fruit-store adapted palette --- */
+  --color-primary: #2D6A4F;
+  --color-primary-deep: #1B4332;
+  --color-primary-soft: #40916C;
+  --color-on-primary: #ffffff;
+  --color-accent: #F77F00;
+  --color-accent-deep: #E36C00;
+  --color-accent-soft: #FCBF49;
+  --color-ink-button: #1C1E21;
+  --color-on-ink-button: #ffffff;
+  --color-success: #31A24C;
+  --color-success-bg: #D4EDDA;
+  --color-attention: #F2A918;
+  --color-warning: #F7B928;
+  --color-warning-bg: #FFF3CD;
+  --color-critical: #E41E3F;
+  --color-critical-strong: #F0284A;
+  --color-canvas: #ffffff;
+  --color-surface-soft: #F5F7F5;
+  --color-ink-deep: #0A1317;
+  --color-ink: #1C1E21;
+  --color-charcoal: #444950;
+  --color-slate: #4B4C4F;
+  --color-steel: #5D6C7B;
+  --color-stone: #8595A4;
+  --color-hairline: #CED0D4;
+  --color-hairline-soft: #DEE3E9;
+  --color-disabled-text: #BCC0C4;
+
+  /* WhatsApp green for CTA */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-deep: #128C7E;
+
+  /* --- Spacing (from DESIGN.md) --- */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 10px;
+  --space-md: 12px;
+  --space-base: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  --space-xxxl: 40px;
+  --space-section-sm: 48px;
+  --space-section: 64px;
+  --space-section-lg: 80px;
+  --space-hero: 120px;
+
+  /* --- Border Radius (from DESIGN.md) --- */
+  --rounded-xs: 2px;
+  --rounded-sm: 4px;
+  --rounded-md: 6px;
+  --rounded-lg: 8px;
+  --rounded-xl: 16px;
+  --rounded-xxl: 24px;
+  --rounded-xxxl: 32px;
+  --rounded-feature: 40px;
+  --rounded-full: 100px;
+  --rounded-circle: 9999px;
+
+  /* --- Elevation (from DESIGN.md) --- */
+  --shadow-subtle: rgba(0, 0, 0, 0.2) 1px 1px 0px 0px;
+  --shadow-panel: rgba(20, 22, 26, 0.3) 0px 1px 4px 0px;
+  --shadow-card: 0 4px 24px rgba(45, 106, 79, 0.08);
+  --shadow-card-hover: 0 8px 32px rgba(45, 106, 79, 0.14);
+
+  /* --- Transitions (from DESIGN.md Known Gaps) --- */
+  --transition-fast: 150ms ease-out;
+  --transition-base: 250ms ease-out;
+  --transition-slow: 300ms ease-in-out;
 }
 
+/* ---------- TailwindCSS v4 Theme Extension ---------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--color-primary);
+  --color-primary-deep: var(--color-primary-deep);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-accent: var(--color-accent);
+  --color-accent-deep: var(--color-accent-deep);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-canvas: var(--color-canvas);
+  --color-surface-soft: var(--color-surface-soft);
+  --color-ink: var(--color-ink);
+  --color-ink-deep: var(--color-ink-deep);
+  --color-charcoal: var(--color-charcoal);
+  --color-steel: var(--color-steel);
+  --color-stone: var(--color-stone);
+  --color-hairline: var(--color-hairline);
+  --color-hairline-soft: var(--color-hairline-soft);
+  --color-success: var(--color-success);
+  --color-critical: var(--color-critical);
+  --color-warning: var(--color-warning);
+  --color-whatsapp: var(--color-whatsapp);
+  --color-whatsapp-deep: var(--color-whatsapp-deep);
+  --font-sans: "Montserrat", "Helvetica", "Arial", "Noto Sans", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---------- Global Base Styles ---------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Focus states for accessibility (WCAG) */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--rounded-sm);
+}
+
+/* ---------- Typography Scale (from DESIGN.md) ---------- */
+.text-hero-display {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.16;
+}
+
+.text-display-lg {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.17;
+}
+
+.text-heading-lg {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+.text-heading-md {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.21;
+}
+
+.text-heading-sm {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.text-subtitle-lg {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.44;
+}
+
+.text-subtitle-md {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.44;
+}
+
+.text-body-md-bold {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.16px;
+}
+
+.text-body-md {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.16px;
+}
+
+.text-body-sm-bold {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.43;
+  letter-spacing: -0.14px;
+}
+
+.text-body-sm {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: -0.14px;
+}
+
+.text-caption-bold {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.33;
+}
+
+.text-caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+/* ---------- Button Components (from DESIGN.md) ---------- */
+
+/* Primary CTA — green pill for fruit store */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.43;
+  letter-spacing: -0.14px;
+  padding: 14px 30px;
+  border-radius: var(--rounded-full);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(45, 106, 79, 0.3);
+}
+
+.btn-primary:active {
+  background-color: var(--color-primary-deep);
+  transform: translateY(0);
+}
+
+/* Secondary CTA — outlined ghost pill */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--color-ink-deep);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.43;
+  letter-spacing: -0.14px;
+  padding: 12px 28px;
+  border-radius: var(--rounded-full);
+  border: 2px solid var(--color-ink-deep);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-ink-deep);
+  color: var(--color-canvas);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* WhatsApp CTA — accent orange pill */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.43;
+  letter-spacing: -0.14px;
+  padding: 14px 30px;
+  border-radius: var(--rounded-full);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--color-whatsapp-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:active {
+  transform: translateY(0);
+}
+
+/* Ghost button — quieter tertiary CTA */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--color-ink-deep);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.43;
+  letter-spacing: -0.14px;
+  padding: 10px 22px;
+  border-radius: var(--rounded-full);
+  border: 2px solid rgba(10, 19, 23, 0.12);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-ink-deep);
+  background-color: var(--color-surface-soft);
+}
+
+/* Pill tab — category filter buttons */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.43;
+  letter-spacing: -0.14px;
+  padding: 8px 16px;
+  border-radius: var(--rounded-full);
+  border: 1px solid var(--color-hairline);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-pill.active {
+  background-color: var(--color-primary);
+  color: var(--color-canvas);
+  border-color: var(--color-primary);
+}
+
+/* ---------- Card Components (from DESIGN.md) ---------- */
+
+.card-feature {
+  background-color: var(--color-canvas);
+  border-radius: var(--rounded-xxxl);
+  padding: var(--space-xxl);
+  border: 1px solid var(--color-hairline-soft);
+  transition: all var(--transition-base);
+}
+
+.card-feature:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.card-icon-feature {
+  background-color: var(--color-canvas);
+  border-radius: var(--rounded-xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-hairline-soft);
+  transition: all var(--transition-base);
+}
+
+.card-icon-feature:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.card-testimonial {
+  background-color: var(--color-canvas);
+  border-radius: var(--rounded-xl);
+  padding: var(--space-xxl);
+  border: 1px solid var(--color-hairline-soft);
+  transition: all var(--transition-base);
+}
+
+.card-testimonial:hover {
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Badge Components (from DESIGN.md) ---------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.33;
+  padding: 4px 10px;
+  border-radius: var(--rounded-full);
+  white-space: nowrap;
+}
+
+.badge-success {
+  background-color: var(--color-success);
+  color: var(--color-canvas);
+}
+
+.badge-critical {
+  background-color: var(--color-critical);
+  color: var(--color-canvas);
+}
+
+.badge-warning {
+  background-color: var(--color-warning);
+  color: var(--color-ink-deep);
+}
+
+.badge-accent {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ---------- Section Containers ---------- */
+
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+}
+
+.section-padding {
+  padding-top: var(--space-section-lg);
+  padding-bottom: var(--space-section-lg);
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out both;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* ---------- Responsive Typography ---------- */
+
+@media (max-width: 767px) {
+  .text-hero-display {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  .text-display-lg {
+    font-size: 28px;
+    line-height: 1.21;
+  }
+  .text-heading-lg {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+  .text-heading-md {
+    font-size: 22px;
+  }
+  .text-heading-sm {
+    font-size: 20px;
+  }
+
+  .section-container {
+    padding-left: var(--space-base);
+    padding-right: var(--space-base);
+  }
+
+  .section-padding {
+    padding-top: var(--space-section-sm);
+    padding-bottom: var(--space-section-sm);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .text-hero-display {
+    font-size: 48px;
+    line-height: 1.17;
+  }
+}
+
+/* ---------- Scrollbar Styling ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-hairline);
+  border-radius: var(--rounded-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-steel);
+}
+
+/* ---------- Selection Color ---------- */
+::selection {
+  background-color: rgba(45, 106, 79, 0.2);
+  color: var(--color-ink-deep);
 }
