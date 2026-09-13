@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tokobuahbarokah.com"),
+  metadataBase: new URL("https://www.tokobuahbarokah.web.id"),
   title: "Toko Buah Barokah — Buah Segar Pilihan di Purwasari",
   description:
     "Toko Buah Barokah menyediakan aneka buah segar lokal berkualitas dengan harga terjangkau. Melayani parcel buah, grosir, dan eceran di Purwasari dan sekitarnya.",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://tokobuahbarokah.com",
+    url: "https://www.tokobuahbarokah.web.id",
     title: "Toko Buah Barokah — Buah Segar Pilihan di Purwasari",
     description: "Toko Buah Barokah: Pusat buah segar lokal dan parcel buah berkualitas di Purwasari.",
     siteName: "Toko Buah Barokah",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://tokobuahbarokah.com",
+    canonical: "https://www.tokobuahbarokah.web.id",
   },
 };
 
@@ -72,7 +72,7 @@ const jsonLd = {
   description:
     "Toko buah segar berkualitas di Purwasari — buah lokal dan parcel buah.",
   image: "/square_BG.webp",
-  url: "https://tokobuahbarokah.com",
+  url: "https://www.tokobuahbarokah.web.id",
   telephone: "+6289686089691",
   address: {
     "@type": "PostalAddress",
