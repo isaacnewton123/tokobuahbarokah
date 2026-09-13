@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Toko Buah Barokah",
     images: [
       {
-        url: "/square_BG.webp",
+        url: "/branding/square_BG.webp",
         width: 1200,
         height: 630,
         alt: "Logo Toko Buah Barokah",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Toko Buah Barokah — Buah Segar Pilihan di Purwasari",
     description: "Toko Buah Barokah: Pusat buah segar lokal dan parcel buah berkualitas di Purwasari.",
-    images: ["/square_BG.webp"],
+    images: ["/branding/square_BG.webp"],
   },
   appleWebApp: {
     title: "TBB",
@@ -71,7 +71,7 @@ const jsonLd = {
   name: "Toko Buah Barokah",
   description:
     "Toko buah segar berkualitas di Purwasari — buah lokal dan parcel buah.",
-  image: "/square_BG.webp",
+  image: "/branding/square_BG.webp",
   url: "https://www.tokobuahbarokah.web.id",
   telephone: "+6289686089691",
   address: {

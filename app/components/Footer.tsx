@@ -20,7 +20,7 @@ function BrandColumn() {
   return (
     <div className="lg:col-span-2">
       <div className="flex items-center gap-3 mb-4">
-        <Image src="/logo_no_BG.webp" alt="Logo Toko Buah Barokah" width={48} height={48} className="rounded-lg" />
+        <Image src="/branding/logo_no_BG.webp" alt="Logo Toko Buah Barokah" width={48} height={48} className="rounded-lg" />
         <span className="text-heading-sm" style={{ color: "var(--color-canvas)" }}>Toko Buah Barokah</span>
       </div>
       <p className="text-body-sm max-w-sm mb-6" style={{ color: "var(--color-stone)" }}>

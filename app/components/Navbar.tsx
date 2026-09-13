@@ -73,7 +73,7 @@ function NavBarContent({ isMobileOpen, onToggle }: { isMobileOpen: boolean; onTo
   return (
     <div className="section-container flex items-center justify-between h-16 md:h-[72px]">
       <a href="#beranda" className="flex items-center gap-2 shrink-0" aria-label="Toko Buah Barokah — Beranda">
-        <Image src="/logo_no_BG.webp" alt="Logo Toko Buah Barokah" width={44} height={44} className="rounded-lg" priority />
+        <Image src="/branding/logo_no_BG.webp" alt="Logo Toko Buah Barokah" width={44} height={44} className="rounded-lg" priority />
         <span className="hidden sm:block font-bold text-lg" style={{ color: "var(--color-primary)" }}>Toko Buah Barokah</span>
       </a>
       <DesktopNav />
