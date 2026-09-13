@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Toko Buah Barokah
 
-## Getting Started
+Toko Buah Barokah adalah sebuah *landing page* modern, profesional, dan responsif yang dibangun untuk sebuah toko buah lokal yang berlokasi di Karangsari, Purwasari. Website ini didesain dengan performa tinggi, ramah SEO, dan sangat mudah digunakan oleh pelanggan.
 
-First, run the development server:
+## 🌟 Fitur Utama
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Katalog Produk Lokal:** Menampilkan produk buah lokal segar dan parcel buah dengan tampilan grid yang rapi.
+- **Integrasi WhatsApp:** Pelanggan dapat langsung menghubungi toko untuk memesan melalui tombol *Floating Action Button (FAB)* WhatsApp.
+- **Lokasi Terintegrasi:** Dilengkapi dengan peta lokasi Google Maps *embed* yang akurat.
+- **Testimoni Pelanggan:** Menampilkan *social proof* dari pelanggan setia di sekitar Purwasari.
+- **Desain Modern & Responsif:** Dibangun menggunakan desain modern (*glassmorphism*, animasi *hover*, warna segar) yang tampil sempurna di desktop, tablet, maupun perangkat *mobile*.
+- **SEO & Aksesibilitas:** Metadata dinamis, terstruktur (JSON-LD), dan sudah dilengkapi dengan icon *RealFaviconGenerator*.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Teknologi yang Digunakan
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Library UI:** [React](https://reactjs.org/)
+- **Styling:** Vanilla CSS & utility-classes dengan kustomisasi penuh
+- **Bahasa:** [TypeScript](https://www.typescriptlang.org/)
+- **Ikon:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Package Manager & Runtime:** [Bun](https://bun.sh/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Cara Menjalankan Secara Lokal
 
-## Learn More
+Pastikan Anda sudah menginstal **[Bun](https://bun.sh/)** di perangkat Anda.
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone repositori atau buka folder proyek:**
+   ```bash
+   cd my-app
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Instal seluruh dependensi:**
+   ```bash
+   bun install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Jalankan server pengembangan (Development Server):**
+   ```bash
+   bun dev
+   ```
+   Aplikasi akan berjalan di [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+4. **Build untuk Produksi:**
+   ```bash
+   bun run build
+   bun start
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 Panduan Desain & Konten
+Proyek ini mengikuti panduan warna dan tipografi secara ketat yang didokumentasikan dalam `DESIGN.md`. Seluruh emoji telah dihindari dan diganti menggunakan `react-icons` agar tampil lebih profesional dan lintas *platform*.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 Lisensi
+Proyek ini adalah milik pribadi "Toko Buah Barokah".
+
+## 🙏 Ucapan Terima Kasih
+Terima kasih khusus kepada [eslint-plugin-ai-guardrails](https://www.npmjs.com/package/eslint-plugin-ai-guardrails) yang telah membantu menjaga kualitas kode, mencegah komentar yang tidak perlu, dan memastikan kode tetap bersih serta terstruktur selama proses pengembangan proyek ini.
