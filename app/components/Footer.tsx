@@ -14,6 +14,7 @@ const QUICK_LINKS = [
   { label: "Kontak", href: "/#kontak" },
   { label: "Legalitas", href: "/legalitas" },
   { label: "Branding Logo", href: "/logo" },
+  { label: "Profil Pemilik", href: "/pemilik" },
 ];
 
 const WA_LINK =
