@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { LuArrowLeft } from "react-icons/lu";
 import { 
   FaGithub, 
   FaFacebook, 
@@ -26,6 +28,14 @@ export default function PemilikPage() {
   return (
     <main className="pt-32 pb-16 min-h-screen">
       <div className="section-container max-w-3xl">
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 mb-8 text-body-md-bold transition-colors hover:text-[var(--color-primary)]"
+          style={{ color: "var(--color-stone)" }}
+        >
+          <LuArrowLeft size={20} />
+          Kembali ke Beranda
+        </Link>
         <div className="glass-panel p-8 md:p-12 rounded-[2rem] text-center">
           <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-card">
             <Image 

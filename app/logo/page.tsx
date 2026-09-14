@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { LuDownload, LuPalette, LuSprout, LuHeartHandshake } from "react-icons/lu";
+import Link from "next/link";
+import { LuDownload, LuPalette, LuSprout, LuHeartHandshake, LuArrowLeft } from "react-icons/lu";
 
 export const metadata = {
   title: "Branding Logo — Toko Buah Barokah",
@@ -10,6 +11,14 @@ export default function LogoPage() {
   return (
     <main className="pt-24 pb-16 min-h-screen">
       <div className="section-container max-w-4xl">
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 mb-8 text-body-md-bold transition-colors hover:text-[var(--color-primary)]"
+          style={{ color: "var(--color-stone)" }}
+        >
+          <LuArrowLeft size={20} />
+          Kembali ke Beranda
+        </Link>
         <div className="text-center mb-12">
           <h1 className="text-heading-lg mb-4" style={{ color: "var(--color-primary)" }}>
             Branding Logo

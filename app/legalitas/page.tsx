@@ -1,4 +1,5 @@
-import { LuFileText, LuDownload, LuClock } from "react-icons/lu";
+import { LuFileText, LuDownload, LuArrowLeft } from "react-icons/lu";
+import Link from "next/link";
 
 export const metadata = {
   title: "Legalitas & Branding — Toko Buah Barokah",
@@ -9,6 +10,14 @@ export default function LegalitasPage() {
   return (
     <main className="pt-24 pb-16 min-h-screen">
       <div className="section-container max-w-4xl">
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 mb-8 text-body-md-bold transition-colors hover:text-[var(--color-primary)]"
+          style={{ color: "var(--color-stone)" }}
+        >
+          <LuArrowLeft size={20} />
+          Kembali ke Beranda
+        </Link>
         <h1 className="text-heading-lg mb-4 text-center" style={{ color: "var(--color-primary)" }}>
           Legalitas & Branding
         </h1>
@@ -95,9 +104,9 @@ export default function LegalitasPage() {
           </div>
 
           {/* SKU Section */}
-          <div className="glass-panel p-8 rounded-2xl relative overflow-hidden border border-dashed border-[var(--color-stone)]/30 flex flex-col">
+          <div className="glass-panel p-8 rounded-2xl relative overflow-hidden group flex flex-col">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[var(--color-stone)]/10 text-[var(--color-stone)] shrink-0">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[var(--color-stone)]/10 text-[var(--color-ink)] shrink-0">
                 <LuFileText size={24} />
               </div>
               <div>
@@ -105,15 +114,19 @@ export default function LegalitasPage() {
                 <p className="text-body-sm" style={{ color: "var(--color-stone)" }}>Surat Keterangan Usaha</p>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center flex-1 text-center py-4">
-              <LuClock size={32} className="mb-3 text-[var(--color-primary)]/50" />
-              <p className="text-body-md font-medium" style={{ color: "var(--color-stone)" }}>
-                Coming Soon
-              </p>
-              <p className="text-body-sm mt-1" style={{ color: "var(--color-stone)" }}>
-                Dokumen sedang dalam proses *scan*.
-              </p>
-            </div>
+            <p className="mb-8 flex-1" style={{ color: "var(--color-stone)" }}>
+              Dokumen Surat Keterangan Usaha (SKU) yang menyatakan keabsahan domisili dan usaha kami di desa setempat.
+            </p>
+            <a 
+              href="/branding/SKU.jpg" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-2 justify-center"
+              style={{ backgroundColor: "var(--color-ink-deep)" }}
+            >
+              <LuDownload size={20} />
+              Lihat Dokumen
+            </a>
           </div>
         </div>
       </div>
